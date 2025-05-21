@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
+    background-color: #2ebfd2;
   }
   
   .contenedor {
@@ -8,7 +8,7 @@ body {
     margin: 0 auto;
     padding: 20px;
     text-align: center;
-    background-color: #ffffff;
+    background-color: #e0dec4;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
@@ -20,15 +20,25 @@ body {
     padding: 10px;
     font-size: 16px;
     width: 70%;
+    border-radius: 8px;
+    border: none;
+
   }
   
   button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4CAF50;
+    background-color: #1992a2;
     color: #ffffff;
     border: none;
     cursor: pointer;
+    border-radius: 8px;
+
+    &:active{
+      transform: scale(95%);
+      background-color: #0b5964;
+
+    }
   }
   
   #datosClima {

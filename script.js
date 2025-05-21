@@ -18,18 +18,14 @@ const traduccionesClima = {
   "rain": "lluvia",
   "thunderstorm": "tormenta eléctrica",
   "snow": "nieve",
-  "mist": "niebla"
+  "mist": "niebla",
+  "over cast": "completamente nublado"
 };
 
-// Tu función que muestra los datos del clima
 function mostrarDatosClima(data) {
   const descripcion = data.weather[0].description;
   const descripcionTraducida = traduccionesClima[descripcion] || descripcion;
-  
-  console.log("Descripción del clima:", descripcionTraducida);
-
-  // Aquí seguirías mostrando otros datos: temperatura, humedad, etc.
-}
+  }
 
 
 document.getElementById('botonBusqueda').addEventListener('click', ()=>{
@@ -38,6 +34,13 @@ document.getElementById('botonBusqueda').addEventListener('click', ()=>{
         fetchDatosClima(ciudad)
     }
 })
+
+// Esto lo agregué para que funcione con la tecla Enter:
+document.getElementById('ciudadEntrada').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    document.getElementById('botonBusqueda').click();
+  }
+});
 
 function fetchDatosClima(ciudad){
 fetch(`${urlBase}?q=${ciudad}&appid=${api_key}`) //'?q' = query(solicitud), '$appid' y '?q' son las propiedades y 'ciudad' y 'api_key' son los valores
@@ -60,9 +63,6 @@ function mostrarDatosClima(data){
     const descripcion = data.weather[0].description;
     const descripcionTraducida = traduccionesClima[descripcion] || descripcion;
     const icono = data.weather[0].icon;
-
-    console.log("Descripción del clima:", descripcionTraducida);
-
 
     const ciudadTituto = document.createElement('h2');
     ciudadTituto.textContent = `${ciudadNombre}, ${paisNombre}`;
